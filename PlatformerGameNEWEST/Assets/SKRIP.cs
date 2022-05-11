@@ -32,8 +32,8 @@ public class SKRIP : MonoBehaviour
         }
         if(coinCounter == 18)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            coinCounter = 0;
+
+            StartCoroutine(StopLOL());
 
         }
     }
@@ -57,6 +57,15 @@ public class SKRIP : MonoBehaviour
         coinCounter++;
         Destroy(other.gameObject);
         GetComponent<AudioSource>().Play();
+    }
+
+    public IEnumerator StopLOL()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        coinCounter = 0;
+
+
     }
 
     
